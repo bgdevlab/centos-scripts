@@ -12,24 +12,25 @@ Default values favour sendgrid smtp server, this can be overriden by ENV vars an
 
  - mail/mailtest.sh
  - mail/configure.mail.sh
- 
+
 ### other
-     
+
  - listcronbydate.sh
  - restart_ntpd_and_sync.sh
+ - showtimes.sh
 
 ## Usage
 
     cd ~
     git clone https://github.com/bgdevlab/centos-scripts.git
-    
+
 _optionally add to home user's bin directory_    
 
 ### examples
 #### show all cron entries
-     
+
     ./centos-scripts/listcronbydate.sh
-    
+
 #### test credentials for sendgrid smtp     
 
     ./centos-scripts/mail/mailtest.sh test_auth username password email@recipient.com
@@ -43,3 +44,11 @@ This relies on the default `sendgrid` preference
 This relies on the explicit smtp server argument
 
     ./centos-scripts/mail/configure.mail.sh install username password my-smtp-server.com.au        
+
+#### show timezone settings for list of servers
+
+```
+./centos-scripts/show_times.sh server_ip
+```
+
+#### 
