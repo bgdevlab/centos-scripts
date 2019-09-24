@@ -7,11 +7,11 @@ fi
 grep 'release 7.' /etc/redhat-release > /dev/null
 
 if [ $? -eq 0 ]; then
-	/bin/systemctl stop  ntpd.service
-	/usr/sbin/ntpdate $TIME_SERVER
-	/bin/systemctl start  ntpd.service
+	/bin/systemctl stop ntpd.service || true
+	/usr/sbin/ntpdate $TIME_SERVER || true
+	/bin/systemctl start ntpd.service || true
 else
-	/sbin/service ntpd stop
-	/usr/sbin/ntpdate $TIME_SERVER
-	/sbin/service ntpd start
+	/sbin/service ntpd stop || true
+	/usr/sbin/ntpdate $TIME_SERVER || true
+	/sbin/service ntpd start || true
 fi
